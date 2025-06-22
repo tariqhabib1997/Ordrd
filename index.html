@@ -1,666 +1,625 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #2a2c33; -webkit-text-stroke: #2a2c33; background-color: #ffffff}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #db3f39; -webkit-text-stroke: #db3f39; background-color: #ffffff}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #42933e; -webkit-text-stroke: #42933e; background-color: #ffffff}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #2a2c33; -webkit-text-stroke: #2a2c33; background-color: #ffffff; min-height: 16.0px}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8f9096; -webkit-text-stroke: #8f9096; background-color: #ffffff}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #a75705; -webkit-text-stroke: #a75705; background-color: #ffffff}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #325eee; -webkit-text-stroke: #325eee; background-color: #ffffff}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; color: #db3f39; -webkit-text-stroke: 0px #db3f39}
-    span.s3 {font-kerning: none; color: #a75705; -webkit-text-stroke: 0px #a75705}
-    span.s4 {font-kerning: none; color: #42933e; -webkit-text-stroke: 0px #42933e}
-    span.s5 {font-kerning: none; color: #2a2c33; -webkit-text-stroke: 0px #2a2c33}
-    span.s6 {font-kerning: none; color: #325eee; -webkit-text-stroke: 0px #325eee}
-    span.s7 {font-kerning: none; color: #930093; -webkit-text-stroke: 0px #930093}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordrd - Scale Without the Chaos | D2C Fulfillment Consultancy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #5A6C7D;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #5A6C7D;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #059669, #10B981);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #10B981;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #5A6C7D;
+        }
+
+        .problem-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #5A6C7D;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #5A6C7D;
+            margin-left: auto;
+        }
+
+        .service-tagline {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .service-cta {
+            background: #5A6C7D;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .service-cta:hover {
+            background: #4A5A6B;
+            transform: translateY(-2px);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0F172A, #1E293B);
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 0;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">html </span><span class="s3">lang</span><span class="s1">="</span><span class="s4">en</span><span class="s1">"&gt;</span></p>
-<p class="p2"><span class="s5">&lt;</span><span class="s1">head</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">meta </span><span class="s3">charset</span><span class="s1">="</span><span class="s4">UTF-8</span><span class="s1">"&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">meta </span><span class="s3">name</span><span class="s5">="</span><span class="s1">viewport</span><span class="s5">"</span><span class="s2"> </span><span class="s3">content</span><span class="s5">="</span><span class="s1">width=device-width, initial-scale=1.0</span><span class="s5">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">title</span><span class="s1">&gt;Ordrd - Scale Without the Chaos | D2C Fulfillment Consultancy&lt;/</span><span class="s2">title</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">style</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">*</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-sizing</span><span class="s1">: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">body</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family</span><span class="s1">: -apple-system, BlinkMacSystemFont, </span><span class="s4">'Segoe UI'</span><span class="s1">, Roboto, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">line-height</span><span class="s1">: </span><span class="s3">1.6</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #1a1a1a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: #ffffff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.container</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width</span><span class="s1">: </span><span class="s3">1200</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> </span><span class="s3">20</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Header */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">header</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: </span><span class="s6">rgba</span><span class="s1">(</span><span class="s3">255</span><span class="s1">, </span><span class="s3">255</span><span class="s1">, </span><span class="s3">255</span><span class="s1">, </span><span class="s3">0.95</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">backdrop-filter</span><span class="s1">: </span><span class="s6">blur</span><span class="s1">(</span><span class="s3">10</span><span class="s1">px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width</span><span class="s1">: </span><span class="s3">100</span><span class="s1">%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index</span><span class="s1">: </span><span class="s3">1000</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-bottom</span><span class="s1">: </span><span class="s3">1</span><span class="s1">px solid #e5e5e5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">nav</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">justify-content</span><span class="s1">: space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">1</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.logo</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-decoration</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.logo img</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height</span><span class="s1">: </span><span class="s3">40</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width</span><span class="s1">: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Placeholder for when logo is not loaded */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.logo-text</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.8</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">800</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #5A6C7D;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-decoration</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.nav-links</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">list-style</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.nav-links a</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #374151;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-decoration</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">500</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transition</span><span class="s1">: color </span><span class="s3">0.3</span><span class="s1">s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.nav-links a:hover</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #5A6C7D;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.cta-button</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: </span><span class="s6">linear-gradient</span><span class="s1">(</span><span class="s3">135</span><span class="s1">deg, #059669, #10B981);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">0.75</span><span class="s1">rem </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius</span><span class="s1">: </span><span class="s3">50</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">600</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-decoration</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transition</span><span class="s1">: all </span><span class="s3">0.3</span><span class="s1">s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> </span><span class="s3">4</span><span class="s1">px </span><span class="s3">15</span><span class="s1">px </span><span class="s6">rgba</span><span class="s1">(</span><span class="s3">5</span><span class="s1">, </span><span class="s3">150</span><span class="s1">, </span><span class="s3">105</span><span class="s1">, </span><span class="s3">0.3</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.cta-button:hover</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform</span><span class="s1">: </span><span class="s6">translateY</span><span class="s1">(</span><span class="s3">-2</span><span class="s1">px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> </span><span class="s3">8</span><span class="s1">px </span><span class="s3">25</span><span class="s1">px </span><span class="s6">rgba</span><span class="s1">(</span><span class="s3">5</span><span class="s1">, </span><span class="s3">150</span><span class="s1">, </span><span class="s3">105</span><span class="s1">, </span><span class="s3">0.4</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Hero Section */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.hero</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: </span><span class="s6">linear-gradient</span><span class="s1">(</span><span class="s3">135</span><span class="s1">deg, #0F172A </span><span class="s3">0</span><span class="s1">%, #1E293B </span><span class="s3">50</span><span class="s1">%, #334155 </span><span class="s3">100</span><span class="s1">%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">8</span><span class="s1">rem </span><span class="s3">0</span><span class="s1"> </span><span class="s3">6</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">overflow</span><span class="s1">: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.hero::before</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">content</span><span class="s1">: </span><span class="s4">''</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">left</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">right</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">bottom</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s5">: </span><span class="s6">url</span><span class="s5">(</span><span class="s1">'data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;&lt;defs&gt;&lt;pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"&gt;&lt;circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/&gt;&lt;/pattern&gt;&lt;/defs&gt;&lt;rect width="100" height="100" fill="url(%23grain)"/&gt;&lt;/svg&gt;'</span><span class="s5">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index</span><span class="s1">: </span><span class="s3">2</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.hero h1</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">3.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">800</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">line-height</span><span class="s1">: </span><span class="s3">1.1</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-subtitle</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">opacity</span><span class="s1">: </span><span class="s3">0.9</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width</span><span class="s1">: </span><span class="s3">600</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-left</span><span class="s1">: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-right</span><span class="s1">: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-stats</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">justify-content</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap</span><span class="s1">: </span><span class="s3">3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin</span><span class="s1">: </span><span class="s3">3</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">flex-wrap</span><span class="s1">: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.stat</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.stat-number</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">2.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">800</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #10B981;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.stat-label</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">0.9</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">opacity</span><span class="s1">: </span><span class="s3">0.8</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Problem Section */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.problem</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">6</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: #f8fafc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.section-title</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">2.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">700</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #1a1a1a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.problem-grid</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: grid;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">grid-template-columns</span><span class="s1">: </span><span class="s6">repeat</span><span class="s1">(auto-fit, </span><span class="s6">minmax</span><span class="s1">(</span><span class="s3">300</span><span class="s1">px, </span><span class="s3">1</span><span class="s1">fr));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-top</span><span class="s1">: </span><span class="s3">3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.problem-card</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius</span><span class="s1">: </span><span class="s3">15</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> </span><span class="s3">10</span><span class="s1">px </span><span class="s3">30</span><span class="s1">px </span><span class="s6">rgba</span><span class="s1">(</span><span class="s3">0</span><span class="s1">, </span><span class="s3">0</span><span class="s1">, </span><span class="s3">0</span><span class="s1">, </span><span class="s3">0.1</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-left</span><span class="s1">: </span><span class="s3">4</span><span class="s1">px solid #5A6C7D;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.problem-icon</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">2.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">1</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.problem-card h3</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">700</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">1</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #1a1a1a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Services Section */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.services</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">6</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.services-grid</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: grid;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-top</span><span class="s1">: </span><span class="s3">3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-card</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: </span><span class="s6">linear-gradient</span><span class="s1">(</span><span class="s3">145</span><span class="s1">deg, #ffffff, #f8fafc);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border</span><span class="s1">: </span><span class="s3">2</span><span class="s1">px solid #e2e8f0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius</span><span class="s1">: </span><span class="s3">20</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">2.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transition</span><span class="s1">: all </span><span class="s3">0.3</span><span class="s1">s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">overflow</span><span class="s1">: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-card:hover</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform</span><span class="s1">: </span><span class="s6">translateY</span><span class="s1">(</span><span class="s3">-5</span><span class="s1">px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> </span><span class="s3">20</span><span class="s1">px </span><span class="s3">40</span><span class="s1">px </span><span class="s6">rgba</span><span class="s1">(</span><span class="s3">0</span><span class="s1">, </span><span class="s3">0</span><span class="s1">, </span><span class="s3">0</span><span class="s1">, </span><span class="s3">0.1</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-color</span><span class="s1">: #5A6C7D;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-header</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display</span><span class="s1">: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">gap</span><span class="s1">: </span><span class="s3">1</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-icon</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-title</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">700</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #1a1a1a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-price</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">800</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #5A6C7D;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-left</span><span class="s1">: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-tagline</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-style</span><span class="s1">: italic;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #6b7280;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.1</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-features</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">list-style</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-features li</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">0.5</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding-left</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-features li::before</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">content</span><span class="s1">: </span><span class="s4">'✓'</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position</span><span class="s1">: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">left</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: #10b981;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-cta</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: #5A6C7D;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">1</span><span class="s1">rem </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius</span><span class="s1">: </span><span class="s3">50</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">600</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">cursor</span><span class="s1">: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transition</span><span class="s1">: all </span><span class="s3">0.3</span><span class="s1">s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width</span><span class="s1">: </span><span class="s3">100</span><span class="s1">%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.service-cta:hover</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: #4A5A6B;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform</span><span class="s1">: </span><span class="s6">translateY</span><span class="s1">(</span><span class="s3">-2</span><span class="s1">px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Social Proof */</i></span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.social-proof</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">6</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: </span><span class="s6">linear-gradient</span><span class="s1">(</span><span class="s3">135</span><span class="s1">deg, #0F172A, #1E293B);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.testimonial</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width</span><span class="s1">: </span><span class="s3">800</span><span class="s1">px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin</span><span class="s1">: </span><span class="s3">0</span><span class="s1"> auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.3</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-style</span><span class="s1">: italic;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.testimonial-author</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">600</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">opacity</span><span class="s1">: </span><span class="s3">0.9</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* CTA Section */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.final-cta</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">6</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: #1a1a1a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.final-cta h2</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">2.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">700</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.final-cta p</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">1.2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s3">2</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">opacity</span><span class="s1">: </span><span class="s3">0.9</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Footer */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">footer</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background</span><span class="s1">: #0f0f0f;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color</span><span class="s1">: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">3</span><span class="s1">rem </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align</span><span class="s1">: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Responsive */</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">@media </span><span class="s1">(</span><span class="s2">max-width</span><span class="s1">:</span><span class="s3"> 768px</span><span class="s1">) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s4">.hero h1</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">font-size</span><span class="s1">: </span><span class="s3">2.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s4">.hero-stats</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">gap</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s4">.nav-links</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">display</span><span class="s1">: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s4">.service-card</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">padding</span><span class="s1">: </span><span class="s3">1.5</span><span class="s1">rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>/* Animations */</i></span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">@keyframes fadeInUp</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s4">from</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">opacity</span><span class="s1">: </span><span class="s3">0</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">transform</span><span class="s1">: </span><span class="s6">translateY</span><span class="s1">(</span><span class="s3">30</span><span class="s1">px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s4">to</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">opacity</span><span class="s1">: </span><span class="s3">1</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">transform</span><span class="s1">: </span><span class="s6">translateY</span><span class="s1">(</span><span class="s3">0</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.fade-in-up</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">animation</span><span class="s1">: fadeInUp </span><span class="s3">0.6</span><span class="s1">s ease forwards;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">style</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s5">&lt;/</span><span class="s1">head</span><span class="s5">&gt;</span></p>
-<p class="p2"><span class="s5">&lt;</span><span class="s1">body</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">header</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">nav </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1">3NyIgeT0iMjYiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iMTZweCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+ZDwvdHh0Pgo8L3N2Zz4KPC9zdmc+" alt="Packd Logo" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/</span><span class="s2">a</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">ul </span><span class="s3">class</span><span class="s1">="</span><span class="s4">nav-links</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s1">="</span><span class="s4">#services</span><span class="s1">"&gt;Services&lt;/</span><span class="s2">a</span><span class="s1">&gt;&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s1">="</span><span class="s4">#process</span><span class="s1">"&gt;Process&lt;/</span><span class="s2">a</span><span class="s1">&gt;&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s1">="</span><span class="s4">#about</span><span class="s1">"&gt;About&lt;/</span><span class="s2">a</span><span class="s1">&gt;&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s1">="</span><span class="s4">#contact</span><span class="s1">"&gt;Contact&lt;/</span><span class="s2">a</span><span class="s1">&gt;&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/</span><span class="s2">ul</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s1">="</span><span class="s4">#contact</span><span class="s1">"</span><span class="s2"> </span><span class="s3">class</span><span class="s1">="</span><span class="s4">cta-button</span><span class="s1">"&gt;Book a Call&lt;/</span><span class="s2">a</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">nav</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">header</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">section </span><span class="s3">class</span><span class="s1">="</span><span class="s4">hero</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">hero-content</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">h1</span><span class="s1">&gt;Scale Without the Chaos&lt;/</span><span class="s2">h1</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">p </span><span class="s3">class</span><span class="s1">="</span><span class="s4">hero-subtitle</span><span class="s1">"&gt;We help D2C eCommerce brands streamline fulfillment operations and automate repetitive tasks — so you can grow without drowning in operational mess.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">hero-stats</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat-number</span><span class="s1">"&gt;95%&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat-label</span><span class="s1">"&gt;Client Satisfaction Rate&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat-number</span><span class="s1">"&gt;80%&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat-label</span><span class="s1">"&gt;Error Reduction&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat-number</span><span class="s1">"&gt;1-Day&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">stat-label</span><span class="s1">"&gt;Quick Fixes Available&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s5">="</span><span class="s1">#services</span><span class="s5">"</span><span class="s2"> </span><span class="s3">class</span><span class="s5">="</span><span class="s1">cta-button</span><span class="s5">"</span><span class="s2"> </span><span class="s3">style</span><span class="s5">="</span><span class="s1">font-size: 1.1rem; padding: 1rem 2rem;</span><span class="s5">"&gt;See Our Services&lt;/</span><span class="s2">a</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">section</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">section </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">h2 </span><span class="s3">class</span><span class="s1">="</span><span class="s4">section-title</span><span class="s1">"&gt;Are You Wrestling With These Issues?&lt;/</span><span class="s2">h2</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-grid</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-icon</span><span class="s1">"&gt;📦&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">h3</span><span class="s1">&gt;Messy Manual Workflows&lt;/</span><span class="s2">h3</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">p</span><span class="s1">&gt;Your team is copying data between systems, double-checking orders manually, and constantly firefighting fulfillment chaos.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-icon</span><span class="s1">"&gt;❌&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">h3</span><span class="s1">&gt;Costly Shipping Errors&lt;/</span><span class="s2">h3</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">p</span><span class="s1">&gt;Wrong addresses, duplicate orders, and pick/pack mistakes are eating into your margins and frustrating customers.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-icon</span><span class="s1">"&gt;🔄&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">h3</span><span class="s1">&gt;Returns Nightmare&lt;/</span><span class="s2">h3</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">p</span><span class="s1">&gt;Returns processing is a black hole of time and confusion, with no clear system for handling exchanges or refunds.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">problem-icon</span><span class="s1">"&gt;👥&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">h3</span><span class="s1">&gt;Scaling Bottleneck&lt;/</span><span class="s2">h3</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">p</span><span class="s1">&gt;Every growth spurt means hiring more people to handle the same inefficient processes — there has to be a better way.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">section</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">section </span><span class="s3">class</span><span class="s5">="</span><span class="s1">services</span><span class="s5">"</span><span class="s2"> </span><span class="s3">id</span><span class="s5">="</span><span class="s1">services</span><span class="s5">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">h2 </span><span class="s3">class</span><span class="s1">="</span><span class="s4">section-title</span><span class="s1">"&gt;Choose Your Rescue Mission&lt;/</span><span class="s2">h2</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">p </span><span class="s3">style</span><span class="s5">="</span><span class="s1">text-align: center; font-size: 1.1rem; color: #6b7280; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;</span><span class="s5">"&gt;We value your time. Our pricing is transparent with no hidden costs — find your solution below.&lt;/</span><span class="s2">p</span><span class="s5">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">services-grid</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-header</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">span </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-icon</span><span class="s1">"&gt;⚡️&lt;/</span><span class="s2">span</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-title</span><span class="s1">"&gt;The Ops Sprint&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-price</span><span class="s1">"&gt;£499&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-tagline</span><span class="s1">"&gt;"Fix it fast, in a day."&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">ul </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-features</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;1-day intensive onsite or virtual ops review&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Discovery call + process shadowing or doc audit&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;1 automation delivered same day&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;PDF report + Loom walkthrough&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;48 hours of post-support&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">ul</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">button </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-cta</span><span class="s1">"&gt;Book Ops Sprint&lt;/</span><span class="s2">button</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-header</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">span </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-icon</span><span class="s1">"&gt;🔍&lt;/</span><span class="s2">span</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-title</span><span class="s1">"&gt;The Ordrd Audit&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-price</span><span class="s1">"&gt;£999&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-tagline</span><span class="s1">"&gt;"Understand. Improve. Automate."&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">ul </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-features</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;3–5 day async fulfillment audit&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Complete pick/pack/ship process mapping&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Bottleneck identification &amp; solutions&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Tech stack + automation recommendations&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;1 automation + 2 SOPs delivered&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Final report + 1-hour debrief call&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">ul</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">button </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-cta</span><span class="s1">"&gt;Start Audit&lt;/</span><span class="s2">button</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-header</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">span </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-icon</span><span class="s1">"&gt;🚨&lt;/</span><span class="s2">span</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-title</span><span class="s1">"&gt;The Ops SOS&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-price</span><span class="s1">"&gt;from £699&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-tagline</span><span class="s1">"&gt;"Emergency fulfillment rescue."&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">ul </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-features</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Immediate call for operational triage&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Fast diagnosis + quick fix implementation&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Patch or automate temporary solution&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Weekend/same-day premium available&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;7-day post-support included&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">ul</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">button </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-cta</span><span class="s1">"&gt;Emergency Help&lt;/</span><span class="s2">button</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-header</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">span </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-icon</span><span class="s1">"&gt;🏗&lt;/</span><span class="s2">span</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-title</span><span class="s1">"&gt;Ordrd Ops Builder&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-price</span><span class="s1">"&gt;£2,500–£6,000&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-tagline</span><span class="s1">"&gt;"We don't just diagnose. We build."&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">ul </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-features</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Full ops redesign over 2–6 weeks&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Custom automation blueprint + dashboard&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Complete SOP documentation&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Team training + handover sessions&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Weekly syncs + final delivery deck&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">ul</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">button </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-cta</span><span class="s1">"&gt;Build My Ops&lt;/</span><span class="s2">button</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-card</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-header</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">span </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-icon</span><span class="s1">"&gt;🧠&lt;/</span><span class="s2">span</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-title</span><span class="s1">"&gt;Fractional COO&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-price</span><span class="s1">"&gt;from £1,250/month&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-tagline</span><span class="s1">"&gt;"Ongoing strategic ops without a full-time hire."&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">ul </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-features</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Monthly executive-level ops reviews&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;KPI and fulfillment health monitoring&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Proactive systems updates + automation builds&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Team workflow oversight&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Slack/WhatsApp access for urgent issues&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;</span><span class="s2">li</span><span class="s1">&gt;Quarterly strategy sessions&lt;/</span><span class="s2">li</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/</span><span class="s2">ul</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;</span><span class="s2">button </span><span class="s3">class</span><span class="s1">="</span><span class="s4">service-cta</span><span class="s1">"&gt;Get COO Support&lt;/</span><span class="s2">button</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">section</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">section </span><span class="s3">class</span><span class="s5">="</span><span class="s1">social-proof</span><span class="s5">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">testimonial</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>"Ordrd transformed our fulfillment chaos into a smooth operation. We went from 3 hours of daily order processing to 30 minutes — and our error rate dropped to almost zero."</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">testimonial-author</span><span class="s1">"&gt;— Sarah Chen, Founder @ EcoLiving Co.&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">section</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">section </span><span class="s3">class</span><span class="s5">="</span><span class="s1">final-cta</span><span class="s5">"</span><span class="s2"> </span><span class="s3">id</span><span class="s5">="</span><span class="s1">contact</span><span class="s5">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">h2</span><span class="s1">&gt;Ready to Scale Without the Chaos?&lt;/</span><span class="s2">h2</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">p</span><span class="s1">&gt;Book a 15-minute discovery call to see which service fits your current situation.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">a </span><span class="s3">href</span><span class="s5">="</span><span class="s1">javascript:void(0)</span><span class="s5">"</span><span class="s2"> </span><span class="s3">class</span><span class="s5">="</span><span class="s1">cta-button</span><span class="s5">"</span><span class="s2"> </span><span class="s3">style</span><span class="s5">="</span><span class="s1">font-size: 1.2rem; padding: 1.2rem 2.5rem;</span><span class="s5">"</span><span class="s2"> </span><span class="s3">onclick</span><span class="s5">="</span><span class="s1">openCalendly()</span><span class="s5">"&gt;Book Discovery Call&lt;/</span><span class="s2">a</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">section</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">footer</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;</span><span class="s2">div </span><span class="s3">class</span><span class="s1">="</span><span class="s4">container</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;</span><span class="s2">p</span><span class="s1">&gt;&amp;copy; 2025 Ordrd. Scaling D2C brands without operational chaos.&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">footer</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1"><i>&lt;!-- Calendly badge widget begin --&gt;</i></span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">link </span><span class="s3">href</span><span class="s5">="</span><span class="s1">https://assets.calendly.com/assets/external/widget.css</span><span class="s5">"</span><span class="s2"> </span><span class="s3">rel</span><span class="s5">="</span><span class="s1">stylesheet</span><span class="s5">"&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">script </span><span class="s3">src</span><span class="s5">="</span><span class="s1">https://assets.calendly.com/assets/external/widget.js</span><span class="s5">"</span><span class="s2"> </span><span class="s3">type</span><span class="s5">="</span><span class="s1">text/javascript</span><span class="s5">"</span><span class="s2"> </span><span class="s3">async</span><span class="s5">&gt;&lt;/</span><span class="s2">script</span><span class="s5">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;</span><span class="s2">script</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>// Initialize Calendly</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">function</span><span class="s1"> </span><span class="s6">openCalendly</span><span class="s1">() {</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">            </span>Calendly.</span><span class="s6">initPopupWidget</span><span class="s5">({</span><span class="s2">url</span><span class="s6">:</span><span class="s5"> </span><span class="s1">'https://calendly.com/your-username'</span><span class="s5">});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">return</span><span class="s1"> </span><span class="s3">false</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>// Smooth scrolling for navigation links</i></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">document</span><span class="s5">.</span><span class="s1">querySelectorAll</span><span class="s5">(</span><span class="s4">'a[href^="#"]'</span><span class="s5">).</span><span class="s1">forEach</span><span class="s5">(anchor </span><span class="s1">=&gt;</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>anchor.</span><span class="s6">addEventListener</span><span class="s1">(</span><span class="s4">'click'</span><span class="s1">, </span><span class="s7">function</span><span class="s1"> (e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>e.</span><span class="s6">preventDefault</span><span class="s1">();</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s7">const</span><span class="s5"> target </span><span class="s1">=</span><span class="s5"> </span><span class="s1">document</span><span class="s5">.</span><span class="s1">querySelector</span><span class="s5">(</span><span class="s7">this</span><span class="s5">.</span><span class="s1">getAttribute</span><span class="s5">(</span><span class="s4">'href'</span><span class="s5">));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">if</span><span class="s1"> (target) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>target.</span><span class="s6">scrollIntoView</span><span class="s1">({</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s2">behavior</span><span class="s6">:</span><span class="s1"> </span><span class="s4">'smooth'</span><span class="s1">,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s2">block</span><span class="s6">:</span><span class="s1"> </span><span class="s4">'start'</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>// Add scroll effect to header</i></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">window</span><span class="s5">.</span><span class="s1">addEventListener</span><span class="s5">(</span><span class="s4">'scroll'</span><span class="s5">, () </span><span class="s1">=&gt;</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">const</span><span class="s1"> header </span><span class="s6">=</span><span class="s1"> </span><span class="s6">document</span><span class="s1">.</span><span class="s6">querySelector</span><span class="s1">(</span><span class="s4">'header'</span><span class="s1">);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">if</span><span class="s1"> (</span><span class="s6">window</span><span class="s1">.scrollY </span><span class="s6">&gt;</span><span class="s1"> </span><span class="s3">100</span><span class="s1">) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>header.style.background </span><span class="s6">=</span><span class="s1"> </span><span class="s4">'rgba(255, 255, 255, 0.98)'</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} </span><span class="s7">else</span><span class="s1"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>header.style.background </span><span class="s6">=</span><span class="s1"> </span><span class="s4">'rgba(255, 255, 255, 0.95)'</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>// Service card click handlers - open Calendly</i></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">document</span><span class="s5">.</span><span class="s1">querySelectorAll</span><span class="s5">(</span><span class="s4">'.service-cta'</span><span class="s5">).</span><span class="s1">forEach</span><span class="s5">(button </span><span class="s1">=&gt;</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>button.</span><span class="s6">addEventListener</span><span class="s1">(</span><span class="s4">'click'</span><span class="s1">, openCalendly);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p4"><span class="s1"></span><br></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1"><i>// Main CTA buttons - open Calendly</i></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">document</span><span class="s5">.</span><span class="s1">querySelectorAll</span><span class="s5">(</span><span class="s4">'.cta-button'</span><span class="s5">).</span><span class="s1">forEach</span><span class="s5">(button </span><span class="s1">=&gt;</span><span class="s5"> {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>button.</span><span class="s6">addEventListener</span><span class="s1">(</span><span class="s4">'click'</span><span class="s1">, </span><span class="s7">function</span><span class="s1">(e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">if</span><span class="s1"> (</span><span class="s7">this</span><span class="s1">.</span><span class="s6">getAttribute</span><span class="s1">(</span><span class="s4">'href'</span><span class="s1">) </span><span class="s6">===</span><span class="s1"> </span><span class="s4">'#contact'</span><span class="s1"> </span><span class="s6">||</span><span class="s1"> </span><span class="s7">this</span><span class="s1">.</span><span class="s6">getAttribute</span><span class="s1">(</span><span class="s4">'href'</span><span class="s1">) </span><span class="s6">===</span><span class="s1"> </span><span class="s4">'#services'</span><span class="s1">) {</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1"><i>// Let normal navigation work for these</i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">return</span><span class="s1">;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>e.</span><span class="s6">preventDefault</span><span class="s1">();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">openCalendly</span><span class="s1">();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s5">&lt;/</span><span class="s1">body</span><span class="s5">&gt;</span></p>
-<p class="p2"><span class="s5">&lt;/</span><span class="s1">html</span><span class="s5">&gt;</span></p>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Ordrd</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Book a Call</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Scale Without the Chaos</h1>
+                <p class="hero-subtitle">We help D2C eCommerce brands streamline fulfillment operations and automate repetitive tasks — so you can grow without drowning in operational mess.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Client Satisfaction Rate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">80%</div>
+                        <div class="stat-label">Error Reduction</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1-Day</div>
+                        <div class="stat-label">Quick Fixes Available</div>
+                    </div>
+                </div>
+                
+                <a href="#services" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">See Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">Are You Wrestling With These Issues?</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">📦</div>
+                    <h3>Messy Manual Workflows</h3>
+                    <p>Your team is copying data between systems, double-checking orders manually, and constantly firefighting fulfillment chaos.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">❌</div>
+                    <h3>Costly Shipping Errors</h3>
+                    <p>Wrong addresses, duplicate orders, and pick/pack mistakes are eating into your margins and frustrating customers.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">🔄</div>
+                    <h3>Returns Nightmare</h3>
+                    <p>Returns processing is a black hole of time and confusion, with no clear system for handling exchanges or refunds.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">👥</div>
+                    <h3>Scaling Bottleneck</h3>
+                    <p>Every growth spurt means hiring more people to handle the same inefficient processes — there has to be a better way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Choose Your Rescue Mission</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #6b7280; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">We value your time. Our pricing is transparent with no hidden costs — find your solution below.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">⚡️</span>
+                        <div>
+                            <div class="service-title">The Ops Sprint</div>
+                            <div class="service-price">£499</div>
+                        </div>
+                    </div>
+                    <div class="service-tagline">"Fix it fast, in a day."</div>
+                    <ul class="service-features">
+                        <li>1-day intensive onsite or virtual ops review</li>
+                        <li>Discovery call + process shadowing or doc audit</li>
+                        <li>1 automation delivered same day</li>
+                        <li>PDF report + Loom walkthrough</li>
+                        <li>48 hours of post-support</li>
+                    </ul>
+                    <button class="service-cta">Book Ops Sprint</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">🔍</span>
+                        <div>
+                            <div class="service-title">The Ordrd Audit</div>
+                            <div class="service-price">£999</div>
+                        </div>
+                    </div>
+                    <div class="service-tagline">"Understand. Improve. Automate."</div>
+                    <ul class="service-features">
+                        <li>3–5 day async fulfillment audit</li>
+                        <li>Complete pick/pack/ship process mapping</li>
+                        <li>Bottleneck identification & solutions</li>
+                        <li>Tech stack + automation recommendations</li>
+                        <li>1 automation + 2 SOPs delivered</li>
+                        <li>Final report + 1-hour debrief call</li>
+                    </ul>
+                    <button class="service-cta">Start Audit</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">🚨</span>
+                        <div>
+                            <div class="service-title">The Ops SOS</div>
+                            <div class="service-price">from £699</div>
+                        </div>
+                    </div>
+                    <div class="service-tagline">"Emergency fulfillment rescue."</div>
+                    <ul class="service-features">
+                        <li>Immediate call for operational triage</li>
+                        <li>Fast diagnosis + quick fix implementation</li>
+                        <li>Patch or automate temporary solution</li>
+                        <li>Weekend/same-day premium available</li>
+                        <li>7-day post-support included</li>
+                    </ul>
+                    <button class="service-cta">Emergency Help</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">🏗</span>
+                        <div>
+                            <div class="service-title">Ordrd Ops Builder</div>
+                            <div class="service-price">£2,500–£6,000</div>
+                        </div>
+                    </div>
+                    <div class="service-tagline">"We don't just diagnose. We build."</div>
+                    <ul class="service-features">
+                        <li>Full ops redesign over 2–6 weeks</li>
+                        <li>Custom automation blueprint + dashboard</li>
+                        <li>Complete SOP documentation</li>
+                        <li>Team training + handover sessions</li>
+                        <li>Weekly syncs + final delivery deck</li>
+                    </ul>
+                    <button class="service-cta">Build My Ops</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">🧠</span>
+                        <div>
+                            <div class="service-title">Fractional COO</div>
+                            <div class="service-price">from £1,250/month</div>
+                        </div>
+                    </div>
+                    <div class="service-tagline">"Ongoing strategic ops without a full-time hire."</div>
+                    <ul class="service-features">
+                        <li>Monthly executive-level ops reviews</li>
+                        <li>KPI and fulfillment health monitoring</li>
+                        <li>Proactive systems updates + automation builds</li>
+                        <li>Team workflow oversight</li>
+                        <li>Slack/WhatsApp access for urgent issues</li>
+                        <li>Quarterly strategy sessions</li>
+                    </ul>
+                    <button class="service-cta">Get COO Support</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <div class="container">
+            <div class="testimonial">
+                "Ordrd transformed our fulfillment chaos into a smooth operation. We went from 3 hours of daily order processing to 30 minutes — and our error rate dropped to almost zero."
+            </div>
+            <div class="testimonial-author">— Sarah Chen, Founder @ EcoLiving Co.</div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Ready to Scale Without the Chaos?</h2>
+            <p>Book a 15-minute discovery call to see which service fits your current situation.</p>
+            <a href="javascript:void(0)" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;" onclick="openCalendly()">Book Discovery Call</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ordrd. Scaling D2C brands without operational chaos.</p>
+        </div>
+    </footer>
+
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <script>
+        // Initialize Calendly
+        function openCalendly() {
+            Calendly.initPopupWidget({url: 'https://calendly.com/your-username'});
+            return false;
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Service card click handlers - open Calendly
+        document.querySelectorAll('.service-cta').forEach(button => {
+            button.addEventListener('click', openCalendly);
+        });
+
+        // Main CTA buttons - open Calendly
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#contact' || this.getAttribute('href') === '#services') {
+                    // Let normal navigation work for these
+                    return;
+                }
+                e.preventDefault();
+                openCalendly();
+            });
+        });
+    </script>
 </body>
 </html>
