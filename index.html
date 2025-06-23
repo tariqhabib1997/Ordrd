@@ -450,6 +450,80 @@
         .fade-in-up {
             animation: fadeInUp 0.6s ease forwards;
         }
+
+        .about .container {
+            box-sizing: border-box;
+        }
+        @media (max-width: 900px) {
+            .about .container > div {
+                flex-direction: column !important;
+                padding: 2rem 1rem !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .about .container {
+                padding: 2.5rem 0 !important;
+            }
+            .about .container > div {
+                padding: 1.2rem 0.5rem !important;
+            }
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 0 2rem 0;
+        }
+        .about-lead {
+            font-size: 1.25rem;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .about-desc {
+            font-size: 1.08rem;
+            color: #4B5563;
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .about-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(16,185,129,0.07);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .about-card-title {
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 0.7rem;
+            font-size: 1.1rem;
+        }
+        .about-card-body {
+            color: #374151;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .about-highlight {
+            color: #059669;
+            font-weight: 600;
+        }
+        @media (max-width: 700px) {
+            .about-content {
+                padding: 2rem 0.5rem 1rem 0.5rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -470,7 +544,7 @@
                     </ul>
                 </div>
                 <div class="nav-right">
-                    <a href="#contact" class="cta-button" onclick="openCalendly(); return false;">Book a Call</a>
+                    <a href="https://calendly.com/adam-ordrd/30min" class="cta-button" target="_blank" rel="noopener">Book a Call</a>
                 </div>
             </div>
         </nav>
@@ -478,9 +552,6 @@
 
     <section class="hero">
         <div class="container">
-            <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-                <img src="logohero.png" alt="Ordrd Logo" style="height: 70px; width: auto; display: block;" />
-            </div>
             <div class="hero-content">
                 <h1>Scale Without the Chaos</h1>
                 <p class="hero-subtitle">We help D2C eCommerce brands streamline fulfillment operations and automate repetitive tasks — so you can grow without drowning in operational mess.</p>
@@ -581,7 +652,7 @@
                         <li>PDF report + Loom walkthrough</li>
                         <li>48 hours of post-support</li>
                     </ul>
-                    <button class="service-cta" onclick="openCalendly(); return false;">Book Ops Sprint</button>
+                    <button class="service-cta" onclick="window.open('https://calendly.com/adam-ordrd/30min', '_blank'); return false;">Book Ops Sprint</button>
                 </div>
 
                 <div class="service-card">
@@ -601,7 +672,7 @@
                         <li>1 automation + 2 SOPs delivered</li>
                         <li>Final report + 1-hour debrief call</li>
                     </ul>
-                    <button class="service-cta" onclick="openCalendly(); return false;">Start Audit</button>
+                    <button class="service-cta" onclick="window.open('https://calendly.com/adam-ordrd/30min', '_blank'); return false;">Start Audit</button>
                 </div>
 
                 <div class="service-card">
@@ -620,7 +691,7 @@
                         <li>Weekend/same-day premium available</li>
                         <li>7-day post-support included</li>
                     </ul>
-                    <button class="service-cta" onclick="openCalendly(); return false;">Emergency Help</button>
+                    <button class="service-cta" onclick="window.open('https://calendly.com/adam-ordrd/30min', '_blank'); return false;">Emergency Help</button>
                 </div>
 
                 <div class="service-card">
@@ -639,7 +710,7 @@
                         <li>Team training + handover sessions</li>
                         <li>Weekly syncs + final delivery deck</li>
                     </ul>
-                    <button class="service-cta" onclick="openCalendly(); return false;">Build My Ops</button>
+                    <button class="service-cta" onclick="window.open('https://calendly.com/adam-ordrd/30min', '_blank'); return false;">Build My Ops</button>
                 </div>
 
                 <div class="service-card">
@@ -659,7 +730,28 @@
                         <li>Slack/WhatsApp access for urgent issues</li>
                         <li>Quarterly strategy sessions</li>
                     </ul>
-                    <button class="service-cta" onclick="openCalendly(); return false;">Get COO Support</button>
+                    <button class="service-cta" onclick="window.open('https://calendly.com/adam-ordrd/30min', '_blank'); return false;">Get COO Support</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Ordrd</h2>
+            <div class="about-content">
+                <p class="about-lead">Ordrd is a specialist operations and automation consultancy helping D2C brands unlock faster fulfilment, better margins, and smoother workflows.</p>
+                <p class="about-desc">We don’t handle your shipping — we help you handle it better. From warehouse process audits to smart automation using tools like Airtable, Zapier, and GPT, our mission is simple: remove friction, boost efficiency, and let your ops scale with your sales.</p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-card-title">What sets us apart is experience.</div>
+                        <div class="about-card-body">Our team includes industry experts and ecommerce fulfilment specialists with backgrounds at <span class="about-highlight">Amazon</span>, <span class="about-highlight">Shopify</span>, leading 3PLs, and high-growth D2C brands. We’ve lived the operational challenges you’re facing — from growing pains and stockouts to manual processes that just don’t scale.</div>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-card-body">Whether you're solving urgent problems, preparing for peak, or rethinking your fulfilment from the ground up, Ordrd delivers practical solutions and modern automation that drive real results.<br><br>
+                        We partner with you to identify bottlenecks, streamline every step of your fulfillment process, and implement technology that empowers your team—not replaces them. Our approach is hands-on, collaborative, and always tailored to your unique business needs.<br><br>
+                        From rapid-fire fixes to long-term operational transformation, we’re committed to measurable outcomes: faster shipping, fewer errors, happier customers, and a business that’s ready to scale. With Ordrd, you get more than advice—you get a partner invested in your success, every step of the way.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -678,7 +770,7 @@
         <div class="container">
             <h2>Ready to Scale Without the Chaos?</h2>
             <p>Book a 15-minute discovery call to see which service fits your current situation.</p>
-            <a href="javascript:void(0)" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;" onclick="openCalendly(); return false;">Book Discovery Call</a>
+            <a href="https://calendly.com/adam-ordrd/30min" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;" target="_blank" rel="noopener">Book Discovery Call</a>
         </div>
     </section>
 
@@ -693,49 +785,8 @@
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     
     <script>
-        // Initialize Calendly
-        function openCalendly() {
-            Calendly.initPopupWidget({url: 'https://calendly.com/adam-ordrd/30min'});
-            return false;
-        }
-
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Service card click handlers - open Calendly
-        document.querySelectorAll('.service-cta').forEach(button => {
-            button.addEventListener('click', openCalendly);
-        });
-
-        // Main CTA buttons - open Calendly
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#contact' || this.getAttribute('href') === '#services') {
-                    // Let normal navigation work for these
-                    return;
-                }
-                e.preventDefault();
-                openCalendly();
-            });
-        });
+        // Calendly popup function no longer needed for CTAs
+        // Remove event listeners for CTAs
     </script>
 </body>
 </html>
